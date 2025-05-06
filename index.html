@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Breach</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      padding: 20px;
+      white-space: pre-wrap;
+      text-shadow: 0 0 5px red, 0 0 10px red;
+      overflow: hidden;
+    }
+    .glitch {
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { color: #00ff00; text-shadow: 0 0 5px red; }
+      20% { color: red; text-shadow: 0 0 5px green; }
+      40% { color: #00ff00; text-shadow: 0 0 8px red; }
+      60% { color: red; text-shadow: 0 0 3px green; }
+      80% { color: #00ff00; text-shadow: 0 0 5px red; }
+      100% { color: red; text-shadow: 0 0 10px green; }
+    }
+
+    ::selection {
+      background: red;
+      color: black;
+    }
+  </style>
+</head>
+<body id="console" class="glitch"></body>
+
+<script>
+  const lines = [
+    "Wait For Link To Appear",
+    "Generate...",
+    "P. 92.28.211.234",
+    "N: 43.7462",
+    "Country: Indonesia",
+    "Device: Mobile",
+    "Number: 6979191519182016",
+    "Gateway: 192.168.0.1",
+    "IP Address: 192.168.3.1",
+    "IPV4: 192.168.3.1:443",
+    "Modem Jump: 64",
+    "Ucom Universal DNS: 8.8.8.8",
+    "Enabled DMZ: 10.112.42.1",
+    "TCP OPEN PORTS: 44",
+    "Lock The Doors."
+  ];
+
+  let i = 0;
+  function typeLine() {
+    if (i < lines.length) {
+      document.getElementById("console").innerHTML += lines[i] + "\n";
+      i++;
+      let delay = 2000 + Math.random() * 1000; // Slower and varied timing
+      setTimeout(typeLine, delay);
+    }
+  }
+
+  setTimeout(typeLine, 1500);
+</script>
+</html>
